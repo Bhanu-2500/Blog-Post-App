@@ -53,13 +53,10 @@ app.post('/compose',function(req,res){
 
 //View each post 
 app.get('/posts/:postTitle',function(req,res){
-  console.log("hellow");
 posts.forEach(post => {
   if(_.lowerCase(post.Title)==_.lowerCase(req.params.postTitle)){
-    console.log(post);
     res.render("post",{post:post});
   }else{
-    console.log(_.lowerCase(req.params.postTitle));
     res.redirect("/");
   }
 });
